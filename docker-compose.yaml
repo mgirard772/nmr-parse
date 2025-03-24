@@ -1,0 +1,13 @@
+services:
+  nmr-parse:
+    image: nmr-parse
+    volumes:
+      - ./src:/nmr-parse/src
+    ports:
+      - 443:443
+    command: ["python", "-u", "app.py"]
+    networks:
+      - nmr-parse
+
+networks:
+  nmr-parse:
