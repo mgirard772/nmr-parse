@@ -18,11 +18,11 @@ def clear_queue(queue: list, parsed_values: list) -> None:
     queue.clear()
 
 
-def parse_nvm(nvm_string: str) -> str:
+def parse_nmr(nmr_string: str) -> str:
     # replace 'd,' with 'd.' (temporarily)
-    nvm_string = nvm_string.replace('d,', 'd.')
+    nmr_string = nmr_string.replace('d,', 'd.')
     # split on ','
-    str_values = nvm_string.split(', ')
+    str_values = nmr_string.split(', ')
     # loop through values
     queue = []
     parsed_values = []
@@ -55,4 +55,4 @@ if __name__ == '__main__':
     parser.add_argument('nvm_string')
     args = parser.parse_args()
 
-    print(parse_nvm(args.nvm_string))
+    print(parse_nmr(args.nvm_string))
