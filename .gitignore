@@ -1,2 +1,4 @@
 .env
 .venv
+cov_html
+.coverage
