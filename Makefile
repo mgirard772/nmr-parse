@@ -19,10 +19,10 @@ run-app: build
 app-up: build
 	docker compose up -d
 
-app-down:
+app-down: build
 	docker compose down
 
-app-refresh:
+app-refresh: build
 	docker compose down -v
 	$(MAKE) app-up
 
