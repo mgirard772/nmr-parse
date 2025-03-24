@@ -8,6 +8,9 @@ services:
     command: ["python", "-u", "app.py"]
     networks:
       - nmr-parse
-
+      - caddy
 networks:
   nmr-parse:
+  caddy:
+    name: caddy_network
+    external: true

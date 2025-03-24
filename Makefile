@@ -11,10 +11,10 @@ build:
 	$(MAKE) prune
 
 run-script: build
-	docker-compose run --rm $(IMAGE_NAME) python -u nmr_parse.py $(args)
+	docker run --rm -v $$(pwd)/src/:/$(REPO_NAME)/src $(IMAGE_NAME) python -u nmr_parse.py $(args)
 
 run-app: build
-	docker-compose run -p 12345:12345 --rm $(IMAGE_NAME) python -u app.py
+	docker run --rm -v $$(pwd)/src/:/$(REPO_NAME)/src -p 12345:12345 $(IMAGE_NAME) python -u app.py
 
 app-up: build
 	docker compose up -d
@@ -27,4 +27,4 @@ app-refresh: build
 	$(MAKE) app-up
 
 test: build
-	docker-compose run --rm $(IMAGE_NAME) pytest
+	docker run --rm -v $$(pwd)/src/:/$(REPO_NAME)/src $(IMAGE_NAME) pytest
