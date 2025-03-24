@@ -41,6 +41,6 @@ with gr.Blocks(
 
 if __name__ == '__main__':
     APP.launch(
-        server_port=443,
+        server_port=12345,
         server_name='0.0.0.0'
     )

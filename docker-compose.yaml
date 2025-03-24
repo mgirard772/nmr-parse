@@ -4,7 +4,7 @@ services:
     volumes:
       - ./src:/nmr-parse/src
     ports:
-      - 443:443
+      - 12345:12345
     command: ["python", "-u", "app.py"]
     networks:
       - nmr-parse

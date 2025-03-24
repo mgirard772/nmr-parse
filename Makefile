@@ -14,12 +14,12 @@ run-script: build
 	docker-compose run --rm $(IMAGE_NAME) python -u nmr_parse.py $(args)
 
 run-app: build
-	docker-compose run -p 443:443 --rm $(IMAGE_NAME) python -u app.py
+	docker-compose run -p 12345:12345 --rm $(IMAGE_NAME) python -u app.py
 
 app-up: build
 	docker compose up -d
 
-app-down: build
+app-down:
 	docker compose down
 
 app-refresh: build
