@@ -25,6 +25,9 @@ with gr.Blocks(
                     value='Submit',
                     variant='primary'
                 )
+                nmr_clear = gr.ClearButton(
+                    components=[nmr_input, nmr_output]
+                )
     gr.Examples(config['EXAMPLES'], inputs=[nmr_input])
     nmr_submit.click(
         fn=nmr_parse.parse_nmr,
