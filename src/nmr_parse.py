@@ -19,10 +19,8 @@ def clear_queue(queue: list, parsed_values: list) -> None:
 
 
 def parse_nmr(nmr_string: str) -> str:
-    # replace 'd,' with 'd.' (temporarily)
-    nmr_string = nmr_string.replace('d,', 'd.')
-    # split on ','
-    str_values = nmr_string.split(', ')
+    # split on commas not within parenthesis
+    str_values = re.split(r',\s*(?![^()]*\))', nmr_string)
     # loop through values
     queue = []
     parsed_values = []
